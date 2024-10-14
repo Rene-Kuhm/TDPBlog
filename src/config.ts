@@ -13,7 +13,7 @@ export const NavigationLinks: NavigationLink[] = [
     { name: 'Posts', url: '/posts' },
     { name: 'Category', url: '/categorias' },
     { name: 'Timeline', url: '/timeline' },
-    { name: 'About', url: '/posts/gblog' },
+    { name: 'About', url: '/posts/about-tdpblog' },
     { name: 'Friends', url: '/friends' },
 ]
 
@@ -24,7 +24,7 @@ export const FooterLinks = [
             { name: 'Posts', url: '/posts' },
             { name: 'Timeline', url: '/timeline' },
             { name: 'categorias', url: '/categorias' },
-            { name: 'About Me', url: '/posts/about-TDPBlog' },
+            { name: 'About Me', url: '/posts/about-tdpblog' },
         ],
     },
     {
