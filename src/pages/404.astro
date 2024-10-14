@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro'
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro'
+import { SITE } from '@/config'
+
+const pageTitle: string = `Page Not Found | ${SITE.title}`
+
+const title: string = 'No encontrado'
+const subTitle: string = 'Lo intentamos, pero no encontramos el contenido que buscas'
+const description: string = 'La página que estás buscando no existe.'
+---
+
+<BaseLayout title={pageTitle} description={description}>
+    <section class="grid h-svh place-content-center">
+        <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 lg:py-16">
+            <div class="max-w-screen-sm mx-auto text-center">
+                <h1 class="mb-4 font-extrabold text-yellow-500 text-dark text-7xl dark:text-yellow-400 lg:text-9xl">
+                    {title}
+                </h1>
+                <p class="mb-4 text-3xl font-bold tracking-tight text-balance text-neutral-700 dark:text-neutral-300 md:text-4xl">
+                    {subTitle}
+                </p>
+                <PrimaryCTA title="Home" url="/" />
+            </div>
+        </div>
+    </section>
+</BaseLayout>
