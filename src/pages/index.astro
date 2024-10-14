@@ -13,7 +13,8 @@ import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro'
 // Función para obtener los metadatos de la imagen desde Cloudinary
 
 // Llama a la función para obtener el ancho y alto de la imagen
-const blogHeroImg = 'https://res.cloudinary.com/ddztbf1se/image/upload/v1728891738/cb3whz6cart3cn55it8f.png'
+const blogHeroImg = 'https://res.cloudinary.com/ddztbf1se/image/upload/w_1200,h_800,c_fill/v1728891738/cb3whz6cart3cn55it8f.png'
+
 
 
 const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
@@ -31,8 +32,6 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
         primaryBtnURL="/posts"
         src={blogHeroImg}
         alt="TDPblog"
-        width="1200"
-        height="auto"
     />
 
     <FeaturesSection />
