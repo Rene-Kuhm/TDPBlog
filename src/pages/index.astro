@@ -12,11 +12,21 @@ const blogHeroImg = 'https://res.cloudinary.com/ddztbf1se/image/upload/v17288917
 
 // Función para obtener los metadatos de la imagen desde Cloudinary
 async function getImageDimensions(imageUrl: string) {
-    const apiUrl = `https://res.cloudinary.com/<tu-cloud-name>/image/upload/c_fetch/${imageUrl}`
-    const response = await fetch(apiUrl)
-    const data = await response.json()
-    return { width: data.width, height: data.height }
-};
+    try {
+        const apiUrl = `https://res.cloudinary.com/<tu-cloud-name>/image/upload/c_fetch/${imageUrl}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    return {
+        width: data.width,
+        height: data.height
+    };
+} catch (error) {
+    console.error('Error fetching image dimensions:', error);
+    return {
+        width: null,
+        height: null
+    };
+}
 
 // Llama a la función para obtener el ancho y alto de la imagen
 await getImageDimensions('v1728891738/cb3whz6cart3cn55it8f.png')
