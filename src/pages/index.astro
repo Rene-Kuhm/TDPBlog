@@ -6,20 +6,12 @@ import BlogInsight from '@components/blog/BlogInsight.astro'
 import HeroSection from '@components/ui/sections/HeroSection.astro'
 import FeaturesSection from '@components/ui/sections/FeaturesSection.astro'
 import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro'
-import blogHeroImg from '@images/home.png'
+import blogHeroImg from '@images/home.webp'
 
-
-
-// Función para obtener los metadatos de la imagen desde Cloudinary
-
-// Llama a la función para obtener el ancho y alto de la imagen
-
-
-
-
-const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
-    (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-).slice(0, 3);
+// Obtener los 3 posts más recientes
+const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 3)
 ---
 
 <BaseLayout
@@ -27,7 +19,7 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
     description="Un blog moderno y práctico sobre tecnología y tutoriales."
 >
     <HeroSection
-        title='Hola, <span class="text-yellow-500 dark:text-yellow-400">TDPBlog</span>'
+        title="Hola, <span class='text-yellow-500 dark:text-yellow-400'>TDPBlog</span>"
         primaryBtn="Explorar Posts"
         primaryBtnURL="/posts"
         src={blogHeroImg}
@@ -42,9 +34,10 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
                 Última publicación
             </h2>
             <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
-                Siempre quiero escribir algo, pero rara vez lo hago realmente.😂
+                Siempre quiero escribir algo, pero rara vez lo hago realmente. 😂
             </p>
         </div>
+
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {
                 posts.map(b => (
