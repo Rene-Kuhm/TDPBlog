@@ -2,10 +2,10 @@
 title: "TDPBlog: El Futuro de la Tecnología, al Alcance de Todos"
 description: "TDPBlog te conecta con lo último en tecnología a través de tutoriales accesibles y análisis profundos, ayudándote a crecer en un mundo digital en constante cambio"
 pubDate: "2024-10-13 23:04:00"
-category: "astro"
+category: "general"
 banner: "@images/banners/tdpblog.png"
 banner2: "@images/banners/tdpblog.png"
-tags: ["TDPblog", "Astro", "René Kuhm"]
+tags: ["TDPblog", "General", "René Kuhm"]
 selected: true
 ---
 
