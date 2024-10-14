@@ -32,7 +32,7 @@ export const FooterLinks = [
         links: [
             { name: 'RSS', url: '/rss.xml' },
             { name: 'Site Map', url: '/sitemap-index.xml' },
-            { name: 'Twitter', url: 'https://x.com/godruoyi' },
+            { name: 'Twitter', url: '' },
         ],
     },
 ]
