@@ -1,32 +1,32 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content"
-import BaseLayout from "@layouts/BaseLayout.astro"
-import BlogComments from "@components/blog/BlogComments"
-import Image from "@components/ui/images/Image.astro"
-import { timeago } from "@support/time"
-import { Settings } from "../../config"
-import { SITE } from "@/config"
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import BlogComments from '@components/blog/BlogComments'
+import Image from '@components/ui/images/Image.astro'
+import { timeago } from '@support/time'
+import { Settings } from '../../config'
+import { SITE } from '@/config'
 
 export async function getStaticPaths() {
-    const posts = await getCollection("posts")
-    return posts.map((post) => ({
+    const posts = await getCollection('posts')
+    return posts.map(post => ({
         params: { slug: post.slug },
         props: post,
     }))
 }
 
-type Props = CollectionEntry<"posts">
+type Props = CollectionEntry<'posts'>
 
 const post = Astro.props
 const { Content, remarkPluginFrontmatter } = await post.render()
 
-const category: CollectionEntry<"categorias"> = (
-    await getCollection("categorias")
+const category: CollectionEntry<'categorias'> | null = (
+    await getCollection('categorias')
 )
-    .filter((c) => c.slug === post.data.category)
-    .pop()
+    .filter(c => c.slug === post.data.category)
+    .pop() ?? null
 
-const tags = post.data.tags ?? [category.slug]
+const tags = post.data.tags ?? [category?.slug ?? '']
 const URL = Astro.url.href
 const ogImage = post.data.ogImage
 ---
@@ -36,22 +36,22 @@ const ogImage = post.data.ogImage
     description={post.data.description}
     ogImage={ogImage}
     structuredData={{
-        "@context": "https://schema.org",
-        "@type": "NewsArticle",
-        "@id": URL,
-        url: URL,
-        description: post.data.description,
-        image: [
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        '@id': URL,
+        'url': URL,
+        'description': post.data.description,
+        'image': [
             // post.data.banner,
         ],
-        headline: post.data.title,
-        datePublished: post.data.pubDate,
-        dateModified: post.data.pubDate,
-        author: [
+        'headline': post.data.title,
+        'datePublished': post.data.pubDate,
+        'dateModified': post.data.pubDate,
+        'author': [
             {
-                "@type": "Person",
-                name: SITE.author,
-                url: SITE.url,
+                '@type': 'Person',
+                'name': SITE.author,
+                'url': SITE.url,
             },
         ],
     }}
@@ -80,12 +80,15 @@ const ogImage = post.data.ogImage
                     </h2>
                     <ol class="flex items-center mt-2 whitespace-nowrap">
                         <li class="inline-flex items-center">
-                            <a
-                                class="flex items-center text-sm text-orange-400 hover:text-orange-500 focus:outline-none focus:text-orange-500"
-                                href=`/categorias/${category.slug}`
-                            >
-                                {category?.data?.title}
-                            </a>
+                            {category?.slug && category?.data?.title && (
+                                <a
+                                    class="flex items-center text-sm text-orange-400 hover:text-orange-500 focus:outline-none focus:text-orange-500"
+                                    href={`/categorias/${category.slug}`}
+                                >
+                                    {category.data.title}
+                                </a>
+                            )}
+
                             <svg
                                 class="flex-shrink-0 mx-2 size-5 text-neutral-500 dark:text-neutral-600"
                                 width="16"
@@ -98,7 +101,8 @@ const ogImage = post.data.ogImage
                                 <path
                                     d="M6 13L10 3"
                                     stroke="currentColor"
-                                    stroke-linecap="round"></path>
+                                    stroke-linecap="round"
+                                ></path>
                             </svg>
                         </li>
                         <li
@@ -117,7 +121,8 @@ const ogImage = post.data.ogImage
                                 <path
                                     d="M6 13L10 3"
                                     stroke="currentColor"
-                                    stroke-linecap="round"></path>
+                                    stroke-linecap="round"
+                                ></path>
                             </svg>
                         </li>
                         <li
