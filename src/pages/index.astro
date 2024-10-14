@@ -6,31 +6,24 @@ import BlogInsight from '@components/blog/BlogInsight.astro'
 import HeroSection from '@components/ui/sections/HeroSection.astro'
 import FeaturesSection from '@components/ui/sections/FeaturesSection.astro'
 import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro'
+import fetch from 'node-fetch'
 
-// URL de la imagen de Cloudinary
-const blogHeroImg = 'https://res.cloudinary.com/ddztbf1se/image/upload/v1728891738/cb3whz6cart3cn55it8f.png'
+
 
 // Función para obtener los metadatos de la imagen desde Cloudinary
 async function getImageDimensions(imageUrl: string) {
-    try {
-        const apiUrl = `https://res.cloudinary.com/<tu-cloud-name>/image/upload/c_fetch/${imageUrl}`
-        const response = await fetch(apiUrl)
-        const data = await response.json()
-        return {
-            width: data.width,
-            height: data.height,
-        }
-    }
-    catch (error) {
-        console.error('Error fetching image dimensions:', error)
-        return {
-            width: null,
-            height: null,
-        }
+    const response = await fetch(imageUrl)
+    const data = await response.json() as { width: number, height: number }
+    return {
+        width: data.width,
+        height: data.height,
     }
 }
 // Llama a la función para obtener el ancho y alto de la imagen
-await getImageDimensions('v1728891738/cb3whz6cart3cn55it8f.png')
+const blogHeroImg = 'https://res.cloudinary.com/ddztbf1se/image/upload/v1728891738/cb3whz6cart3cn55it8f.png'
+const dimensions = await getImageDimensions(blogHeroImg)
+const blogHeroImgWidth = dimensions.width
+const blogHeroImgHeight = dimensions.height
 
 const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
     (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -47,8 +40,8 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
         primaryBtnURL="/posts"
         src={blogHeroImg}
         alt="TDPblog"
-        width="auto"
-        height="auto"
+        width={blogHeroImgWidth}
+        height={blogHeroImgHeight}
     />
 
     <FeaturesSection />
