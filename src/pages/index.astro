@@ -6,14 +6,14 @@ import BlogInsight from '@components/blog/BlogInsight.astro'
 import HeroSection from '@components/ui/sections/HeroSection.astro'
 import FeaturesSection from '@components/ui/sections/FeaturesSection.astro'
 import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro'
-
+import { CldImage } from 'astro-cloudinary'
 
 
 
 // Función para obtener los metadatos de la imagen desde Cloudinary
 
 // Llama a la función para obtener el ancho y alto de la imagen
-const blogHeroImg = 'https://res.cloudinary.com/ddztbf1se/image/upload/w_1200,h_800,c_fill/v1728891738/cb3whz6cart3cn55it8f.png'
+
 
 
 
@@ -30,10 +30,10 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts')).sort(
         title='Hola, <span class="text-yellow-500 dark:text-yellow-400">TDPBlog</span>'
         primaryBtn="Explorar Posts"
         primaryBtnURL="/posts"
-        src={blogHeroImg}
+        src={CldImage}
         alt="TDPblog"
-        width={1200}
-        height={800}
+        width="<Width>"
+        height="<Height>"
     />
 
     <FeaturesSection />

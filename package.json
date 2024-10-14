@@ -38,6 +38,7 @@
     "@types/react": "^18.3.2",
     "@types/unist": "^3.0.2",
     "astro": "^4.14.2",
+    "astro-cloudinary": "^1.1.0",
     "astro-compressor": "^0.4.1",
     "mdast-util-to-string": "^4.0.0",
     "node-fetch": "^3.3.2",
