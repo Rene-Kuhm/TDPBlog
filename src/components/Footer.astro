@@ -1,15 +1,15 @@
 ---
 import BrandLogo from '@components/ui/logos/BrandLogo.astro'
 import Image from '@components/ui/images/Image.astro'
-import footerBanner from '@images/footer.png'
+import footerBanner from '@images/footer.webp'
 import { FooterLinks, SITE } from '@/config'
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
     <div class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-screen-2xl">
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 md:grid-cols-5">
-            <div class="col-span-full flex justify-center sm:grid sm:col-span-1">
-                <BrandLogo class="h-auto w-28 rounded-full" />
+        <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
+            <div class="flex justify-center col-span-full sm:grid sm:col-span-1">
+                <BrandLogo class="h-auto rounded-full w-28" />
             </div>
             {
                 FooterLinks.map(section => (
@@ -17,12 +17,12 @@ import { FooterLinks, SITE } from '@/config'
                         <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
                             {section.section}
                         </h3>
-                        <ul class="mt-3 grid space-y-3">
+                        <ul class="grid mt-3 space-y-3">
                                 {section.links.map((link, _index) => (
                                         <li>
                                             <a
                                                 href={link.url}
-                                                class="inline-flex gap-x-2 rounded-lg text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-none"
+                                                class="inline-flex transition duration-300 rounded-lg outline-none gap-x-2 text-neutral-600 ring-zinc-500 hover:text-neutral-500 focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-none"
                                             >
                                                 {link.name}
                                             </a>
@@ -33,12 +33,12 @@ import { FooterLinks, SITE } from '@/config'
                 ))
             }
 
-            <div class="col-span-2 flex justify-center mt-10 md:mt-0">
+            <div class="flex justify-center col-span-2 mt-10 md:mt-0">
                 <div class="max-w-[320px] max-h-[320px] -mt-16 scale-75 hidden md:block">
                     <Image
                         src={footerBanner}
                         alt={SITE.title}
-                        class="h-full w-full object-cover object-center"
+                        class="object-cover object-center w-full h-full"
                         draggable="false"
                         loading="eager"
                         disableBlur={true}
@@ -48,7 +48,7 @@ import { FooterLinks, SITE } from '@/config'
         </div>
 
 
-        <div class="flex items-center text-center justify-center">
+        <div class="flex items-center justify-center text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
                 © <span id="current-year">2024</span> {SITE.title}
             </p>
