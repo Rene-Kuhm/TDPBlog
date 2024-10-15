@@ -22,9 +22,9 @@ export default defineConfig({
         tailwind(),
         react(),
         (await import('@playform/compress')).default({
-            CSS: false,
+            CSS: true,
             HTML: true,
-            Image: false,
+            Image: true,
             JavaScript: true,
             SVG: true,
             Logger: 2,
