@@ -8,10 +8,12 @@ import FeaturesSection from '@components/ui/sections/FeaturesSection.astro'
 import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro'
 import blogHeroImg from '@images/home.avif'
 
+
+
 // Obtener los 3 posts más recientes
 const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .slice(0, 3)
+.sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+.slice(0, 3)
 ---
 
 <BaseLayout

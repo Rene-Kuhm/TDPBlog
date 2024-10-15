@@ -4,10 +4,12 @@ import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import partytown from '@astrojs/partytown'
+import dotenv from 'dotenv'
 import { SITE } from './src/config.ts'
 import { remarkReadingTime } from './src/support/plugins.ts'
 import { uploadAssetsToS3 } from './src/support/uploader.ts'
 
+dotenv.config()
 export default defineConfig({
     site: SITE.url,
     image: {
