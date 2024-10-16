@@ -2,7 +2,7 @@ import type { NavigationLink, Site } from './types.ts'
 
 export const SITE: Site = {
     author: 'René Kuhm',
-    url: 'https://TDPBlog.com',
+    url: 'https://TDPBlog.com.ar',
     title: 'TDPBlog',
     description:
         'TDPBlog es tu espacio para descubrir tutoriales y novedades sobre las últimas tecnologías. Aprende, explora y mantente al día con guías prácticas y análisis detallados.',
