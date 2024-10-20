@@ -1,21 +1,21 @@
 {
-  "name": "godruoyi.com",
+  "name": "tdpblog",
   "type": "module",
   "version": "1.0.0",
-  "homepage": "https://godruoyi.com",
+  "homepage": "https://tdpblog.com.ar",
   "bugs": {
-    "url": "https://github.com/godruoyi/gblog/issues",
-    "email": "syhily@gmail.com"
+    "url": "https://github.com/Rene-Kuhm/TDPBlog/issues",
+    "email": "rene@tdpblog.com.ar"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/godruoyi/gblog.git"
+    "url": "https://github.com/Rene-Kuhm/TDPBlog.git"
   },
   "license": "MIT",
   "author": {
-    "name": "Godruoyi",
-    "email": "godruoyi@gmail.com",
-    "url": "https://godruoyi.com"
+    "name": "TDPBlog",
+    "email": "rene@tdpblog.com.ar",
+    "url": "https://tdpblog.com.ar"
   },
   "scripts": {
     "dev": "astro dev",
