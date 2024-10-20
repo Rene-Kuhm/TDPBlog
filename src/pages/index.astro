@@ -9,6 +9,7 @@ import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro'
 import blogHeroImg from '@images/home.avif'
 
 
+
 const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
 .sort((a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 .slice(0, 3)
