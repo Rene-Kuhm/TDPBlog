@@ -69,7 +69,7 @@ El sitio estará disponible en `http://localhost:3000`.
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
 
-- [Canal de YouTube - tecnodespegue](https://www.youtube.com/tecnodespegue)
+- [Canal de YouTube - tecnodespegue](https://www.youtube.com/@Tecnodespegue)
 - [Blog - TDPBlog](https://tdpblog.com.ar)
 
 ## 🎉 ¡Gracias por visitar TDPBlog!
