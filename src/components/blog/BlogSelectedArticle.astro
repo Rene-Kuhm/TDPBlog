@@ -10,28 +10,39 @@ interface Props {
 }
 ---
 
-<section class="mx-auto max-w-[85rem] px-4 py-8 sm:px-6 lg:px-8 mb-10 2xl:max-w-full">
-    <div class="text-left">
-        <h2 id="selected-articel" class="mb-4 text-5xl font-extrabold tracking-tight text-balance text-neutral-800 dark:text-neutral-200">
+<section
+    class='mx-auto max-w-[85rem] px-4 py-8 sm:px-6 lg:px-8 mb-10 2xl:max-w-full'
+>
+    <div class='text-left'>
+        <h2
+            id='selected-articel'
+            class='mb-4 text-5xl font-extrabold tracking-tight text-balance text-neutral-800 dark:text-neutral-200'
+        >
             Selecciona un artículo
         </h2>
-        <p class="mb-8 font-light max-w-prose text-pretty text-neutral-600 dark:text-neutral-400 sm:text-xl">
-            Aquí tienes algunos artículos que considero interesantes, espero que te gusten también.
+        <p
+            class='mb-8 font-light max-w-prose text-pretty text-neutral-600 dark:text-neutral-400 sm:text-xl'
+        >
+            Aquí tienes algunos artículos que considero interesantes, espero que
+            te gusten también.
         </p>
     </div>
 
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2">
-        {posts.map(b => <BlogCard blog={b} />)}
+    <div class='grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2'>
+        {posts.map((b) => <BlogCard blog={b} />)}
     </div>
 
-    <div class="mt-6 text-center">
+    <div class='mt-6 text-center'>
         <a
-            href="/timeline"
-            class="inline-flex items-center justify-center px-4 py-3 text-sm font-bold transition duration-300 bg-orange-400 border border-transparent rounded-full outline-none group gap-x-2 text-neutral-50 ring-zinc-500 focus-visible:ring hover:bg-orange-500 active:bg-orange-500 dark:focus:outline-none disabled:pointer-events-none disabled:opacity-50 2xl:text-base dark:ring-zinc-200"
+            href='/timeline'
+            class='inline-flex items-center justify-center px-4 py-3 text-sm font-bold transition duration-300 bg-orange-400 border border-transparent rounded-full outline-none group gap-x-2 text-neutral-50 ring-zinc-500 focus-visible:ring hover:bg-orange-500 active:bg-orange-500 dark:focus:outline-none disabled:pointer-events-none disabled:opacity-50 2xl:text-base dark:ring-zinc-200'
         >
-            <div class="flex items-center gap-x-2">
+            <div class='flex items-center gap-x-2'>
                 <p>Quieres leer más?</p>Ve aquí
-                <Icon name="arrowRight" class="flex-shrink-0 w-4 h-4 transition duration-300 group-hover:translate-x-1" />
+                <Icon
+                    name='arrowRight'
+                    class='flex-shrink-0 w-4 h-4 transition duration-300 group-hover:translate-x-1'
+                />
             </div>
         </a>
     </div>
