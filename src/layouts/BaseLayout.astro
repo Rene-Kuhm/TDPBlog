@@ -14,11 +14,17 @@ interface Props {
     structuredData?: object
 }
 
-const { title, description = SITE.description, ogImage, lang = 'en', structuredData } = Astro.props
+const {
+    title,
+    description = SITE.description,
+    ogImage,
+    lang = 'en',
+    structuredData,
+} = Astro.props
 const normalizeTitle = !title ? SITE.title : `${title} | ${SITE.title}`
 ---
 
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+<html lang={lang} class='scrollbar-hide lenis lenis-smooth scroll-pt-16'>
     <head>
         <title>{normalizeTitle}</title>
         <BaseHead
@@ -30,28 +36,36 @@ const normalizeTitle = !title ? SITE.title : `${title} | ${SITE.title}`
             structuredData={structuredData}
         />
         <script is:inline>
-         if (localStorage.getItem('hs_theme') === 'dark' || (!('hs_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-             document.documentElement.classList.add('dark')
-         }
-         else {
-             document.documentElement.classList.remove('dark')
-         }
-         </script>
-        <script is:inline src="/vendor/lenis/lenis1.1.5.min.js"></script>
+            if (
+                localStorage.getItem('hs_theme') === 'dark' ||
+                (!('hs_theme' in localStorage) &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+        </script>
+        <script is:inline src='/vendor/lenis/lenis1.1.5.min.js'></script>
         <script is:inline>
-        const lenis = new Lenis()
-        function raf(time) {
-            lenis.raf(time)
+            const lenis = new Lenis()
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
             requestAnimationFrame(raf)
-        }
-        requestAnimationFrame(raf)
         </script>
         <GoogleAnalytics />
         <UmamiAnalytics />
-        <meta name="google-site-verification" content="yurqCS2CnKMtTPbBC2OcUaAdugAWLgHta6zP4BLuEt8" />
+        <meta
+                name='google-site-verification'
+                content='yurqCS2CnKMtTPbBC2OcUaAdugAWLgHta6zP4BLuEt8'
+        />
     </head>
-    <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
-        <div class="px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
+    <body
+        class='bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800'
+    >
+        <div class='px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8'>
             <Header />
             <main>
                 <slot />

@@ -16,6 +16,10 @@ export default antfu({
         'no-console': 'off',
         'curly': ['error', 'all'],
         'node/prefer-global/process': 'off',
+        'jsx-quotes': ['error', 'prefer-single'],
+        "operator-linebreak": ["error", "after"],
+        "brace-style": ["error", "stroustrup"],
+        "jsx-indent-props": ["error", 2]  
     },
 
     jsonc: false,

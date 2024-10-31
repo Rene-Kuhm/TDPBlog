@@ -14,49 +14,56 @@ const postMap: Map<string, CollectionEntry<'posts'>[]> = (
         (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
             b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
     )
-    .reduce((acc: Map<string, CollectionEntry<'posts'>[]>, obj: CollectionEntry<'posts'>) => {
-        let posts = acc.get(obj.data.category)
-        if (!posts) {
-            posts = []
-        }
-        posts.push(obj)
+    .reduce(
+        (
+            acc: Map<string, CollectionEntry<'posts'>[]>,
+            obj: CollectionEntry<'posts'>,
+        ) => {
+            let posts = acc.get(obj.data.category)
+            if (!posts) {
+                posts = []
+            }
+            posts.push(obj)
 
-        acc.set(obj.data.category, posts)
+            acc.set(obj.data.category, posts)
 
-        return acc
-    }, new Map<string, CollectionEntry<'posts'>[]>())
+            return acc
+        },
+        new Map<string, CollectionEntry<'posts'>[]>(),
+    )
 
 const categorias = await getCollection('categorias')
-const description = 'Aquí hay algunas categorías que interesan a TDPBlog, incluyendo Astro, Nextjs y su vida'
+const description =
+    'Aquí hay algunas categorías que interesan a TDPBlog, incluyendo Astro, Nextjs y su vida'
 const URL = Astro.url.href
 ---
 
 <BaseLayout
-    title="All categorias"
+    title='All categorias'
     description={description}
     structuredData={{
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        'inLanguage': 'en-US',
+        inLanguage: 'en-US',
         '@id': URL,
-        'url': URL,
-        'name': `All categorias - ${SITE.title}`,
-        'description': description,
-        'isPartOf': {
+        url: URL,
+        name: `All categorias - ${SITE.title}`,
+        description: description,
+        isPartOf: {
             '@type': 'WebSite',
-            'url': SITE.url,
-            'name': SITE.title,
-            'description': SITE.description,
+            url: SITE.url,
+            name: SITE.title,
+            description: SITE.description,
         },
     }}
 >
-    <MainSection title="categorias" subTitle={description} />
+    <MainSection title='categorias' subTitle={description} />
 
     <section
-        class="px-4 py-10 mx-auto sm:px-6 lg:px-8 lg:pt-10 lg:py-14 2xl:max-w-full"
+        class='px-4 py-10 mx-auto sm:px-6 lg:px-8 lg:pt-10 lg:py-14 2xl:max-w-full'
     >
         <div
-            class="grid items-center gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-10"
+            class='grid items-center gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-10'
         >
             {
                 categorias.map((c: any) => (

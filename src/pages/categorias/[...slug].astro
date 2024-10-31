@@ -7,9 +7,9 @@ import { SITE } from '@/config'
 
 // Obtener las rutas estáticas para categorías
 export async function getStaticPaths() {
-    const categorias: CollectionEntry<'categorias'>[]
-        = await getCollection('categorias')
-    return categorias.map(category => ({
+    const categorias: CollectionEntry<'categorias'>[] =
+        await getCollection('categorias')
+    return categorias.map((category) => ({
         params: { slug: category.slug },
         props: { category },
     }))
@@ -35,15 +35,15 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
     structuredData={{
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        'inLanguage': 'en-US',
+        inLanguage: 'en-US',
         '@id': URL,
-        'url': URL,
-        'name': `${category.data.title} - ${SITE.title}`,
-        'description': category.data.description,
-        'isPartOf': {
+        url: URL,
+        name: `${category.data.title} - ${SITE.title}`,
+        description: category.data.description,
+        isPartOf: {
             '@type': 'WebSite',
-            'url': categoriasURL,
-            'name': `All categorias - ${SITE.title}`,
+            url: categoriasURL,
+            name: `All categorias - ${SITE.title}`,
         },
     }}
 >
@@ -51,15 +51,15 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
         title={category.data.title}
         subTitle={category.data.description}
         btnExists={true}
-        btnTitle="Ir a la lista"
-        btnURL="/categorias/"
+        btnTitle='Ir a la lista'
+        btnURL='/categorias/'
     />
 
     <section
-        class="mx-auto max-w-[85rem] px-4 py-8 sm:px-6 lg:px-8 mb-10 2xl:max-w-full"
+        class='mx-auto max-w-[85rem] px-4 py-8 sm:px-6 lg:px-8 mb-10 2xl:max-w-full'
     >
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2">
-            {posts.map(b => <BlogCard blog={b} />)}
+        <div class='grid grid-cols-1 gap-6 lg:grid-cols-3 sm:grid-cols-2'>
+            {posts.map((b) => <BlogCard blog={b} />)}
         </div>
     </section>
 </BaseLayout>

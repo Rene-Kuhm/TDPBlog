@@ -31,8 +31,17 @@ if (!ogImage) {
 }
 
 const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
-const appleTouchIcon = await getImage({ src: faviconSrc, width: 180, height: 180, format: 'png' })
-const socialImageRes = await getImage({ src: ogImage, width: 1200, height: 600 })
+const appleTouchIcon = await getImage({
+    src: faviconSrc,
+    width: 180,
+    height: 180,
+    format: 'png',
+})
+const socialImageRes = await getImage({
+    src: ogImage,
+    width: 1200,
+    height: 600,
+})
 
 let socialImage = socialImageRes.src
 if (!socialImage.startsWith('http')) {
@@ -40,8 +49,7 @@ if (!socialImage.startsWith('http')) {
 }
 ---
 
-<!-- Inject structured data https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->
-{
+<!-- Inject structured data https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->{
     structuredData && (
         <script
             type="application/ld+json"
@@ -55,7 +63,10 @@ if (!socialImage.startsWith('http')) {
 <meta name="description" content={description} />
 <meta charset="utf-8" />
 <meta name="web_author" content={SITE.author} />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
+/>
 <meta name="generator" content={Astro.generator} />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta name="mobile-web-app-capable" content="yes" />
@@ -85,7 +96,7 @@ if (!socialImage.startsWith('http')) {
 <!-- Links -->
 <link href={canonicalURL} rel="canonical" />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<!--<link href="/manifest.json" rel="manifest" />-->
+<!--<link href='/manifest.json' rel='manifest' />-->
 <link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
 <link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />

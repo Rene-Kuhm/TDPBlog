@@ -8,6 +8,7 @@ banner2: "@images/banners/facebook.avif"
 tags: ["TDPblog", "Noticias", "René Kuhm"]
 selected: true
 ---
+
 Este lunes 14 de octubre de 2024, usuarios de todo el mundo reportaron fallas en las plataformas de Meta: Facebook, WhatsApp e Instagram. Los problemas comenzaron alrededor de las 11:10 am, y desde entonces los reportes de fallos han ido en aumento.
 
 Problemas en las Principales Plataformas de Meta
