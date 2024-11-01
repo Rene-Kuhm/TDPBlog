@@ -1,5 +1,5 @@
 ---
-title: Personalización de PowerShell con Oh My
+title: Personalización de PowerShell con Oh My Posh
 description: ""
 pubDate: 2024-11-01T18:36:53.255Z
 category: "tutoriales"
