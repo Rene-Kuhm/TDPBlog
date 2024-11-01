@@ -35,7 +35,7 @@
       "name": "posts",
       "previewPath": "posts",
       "pageBundle": false,
-      "clearEmpty": true,
+      "clearEmpty": false,
       "fields": [
         {
           "title": "Title",
