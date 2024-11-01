@@ -9,7 +9,7 @@ import { SITE } from '@/config'
 
 export async function getStaticPaths() {
     const posts = await getCollection('posts')
-    return posts.map((post) => ({
+    return posts.map((post: CollectionEntry<'posts'>) => ({
         params: { slug: post.slug },
         props: post,
     }))
@@ -22,7 +22,7 @@ const { Content, remarkPluginFrontmatter } = await post.render()
 
 const category: CollectionEntry<'categorias'> | null =
     (await getCollection('categorias'))
-        .filter((c) => c.slug === post.data.category)
+        .filter((c: CollectionEntry<'categorias'>) => c.slug === post.data.category)
         .pop() ?? null
 
 const tags = post.data.tags ?? [category?.slug ?? '']

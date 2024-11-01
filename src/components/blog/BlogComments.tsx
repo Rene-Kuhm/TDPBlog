@@ -56,15 +56,15 @@ function BlogComments() {
             {mounted ? (
                 <Giscus
                     id={id}
-                    repo={commentSetting.repo as Repo}
+                    repo={commentSetting.repo} // Ahora debería reconocerlo sin problemas de tipo
                     repoId={commentSetting.repoId}
                     category={commentSetting.category}
                     categoryId={commentSetting.categoryId}
-                    mapping="title"
+                    mapping="pathname"
                     reactionsEnabled="1"
                     emitMetadata="0"
                     inputPosition="top"
-                    lang="zh-CN"
+                    lang="es"
                     loading="lazy"
                     theme={theme}
                 />
