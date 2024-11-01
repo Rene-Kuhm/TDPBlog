@@ -1,13 +1,30 @@
 ---
-title: "¿Merece la pena el Xiaomi 15? Diferencias con el Xiaomi 14"
+title: ¿Merece la pena el Xiaomi 15? Diferencias con el Xiaomi 14
 description: "Descubre si vale la pena el nuevo Xiaomi 15: análisis de las principales diferencias con el Xiaomi 14 y si realmente ofrece mejoras significativas."
 pubDate: 2024-11-01T00:19:17.491Z
-category: "Noticias"
-banner: "https://i.postimg.cc/1zY7WsLP/AA1tdadC.jpg"
+category: Noticias
+banner: https://i.postimg.cc/1zY7WsLP/AA1tdadC.jpg
 banner2: ""
-tags: [xiaomi,xiaomi 15,xiaomi 14,comparativa xiaomi,smartphones 2024]
+tags:
+    - xiaomi
+    - xiaomi 15
+    - xiaomi 14
+    - comparativa xiaomi
+    - smartphones 2024
 selected: false
 fmContentType: posts
+keywords:
+    - Comparativa Xiaomi 15 vs Xiaomi 14
+    - Duración de la batería Xiaomi 15
+    - HyperOS 2.0
+    - Mejoras en la cámara Xiaomi 15
+    - Novedades Xiaomi 15
+    - Pantalla OLED Xiaomi 15
+    - Smartphone de alta gama 2024
+    - Snapdragon 8 Elite
+    - Xiaomi 14
+    - Xiaomi 15
+    - Smartphones Xiaomi análisis
 ---
 
 La nueva gama de teléfonos Xiaomi 15, lanzada hace apenas un día, trae una serie de actualizaciones que mejoran notablemente a su predecesor, el Xiaomi 14, presentado en octubre de 2023. Con un diseño renovado, mejor rendimiento, innovaciones en cámara y una variedad de características avanzadas, el Xiaomi 15 se convierte en el buque insignia de la marca. A continuación, repasamos las mejoras clave que esta nueva generación trae consigo.
