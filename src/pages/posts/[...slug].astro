@@ -167,12 +167,32 @@ const ogImage = post.data.ogImage
             {Settings.Comment.enable && (
                 <>
                 <script defer src="https://cdn.commento.io/js/commento.js"></script>
-                <div id="commento"></div>  
+                <div id="commento"></div>
+                <script>
+                // Espera a que el contenido de Commento se cargue
+                document.addEventListener("DOMContentLoaded", function() {
+                    const interval = setInterval(() => {
+                        // Selecciona todos los botones de edición de Commento
+                        const editButtons = document.querySelectorAll(".commento-comment-edit-button");
+
+                        if (editButtons.length > 0) {
+                            editButtons.forEach(button => {
+                                // Convierte `button` a `HTMLElement` para acceder a `style`
+                                (button as HTMLElement).style.display = "none";
+                            });
+                            clearInterval(interval); // Detiene el intervalo una vez que encuentra los botones
+                        }
+                    }, 500); // Intenta cada 500 ms
+                });
+            </script>
                 </>
             )}
         </section>    
     </section>
     <style is:inline>
+            .commento-comment-edit-button {
+        display: none !important;
+    }
         html.dark .astro-code,
         html.dark .astro-code span {
             color: var(--shiki-dark) !important;
