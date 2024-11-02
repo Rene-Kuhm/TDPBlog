@@ -163,13 +163,14 @@ const ogImage = post.data.ogImage
                 </div>
             </div>
         </div>
-        {
-            Settings.Comment.enable && (
-                <div class='my-10'>
-                    <BlogComments client:only='react' />
-                </div>
-            )
-        }
+        <section id="comments">
+            {Settings.Comment.enable && (
+                <>
+                <script defer src="https://cdn.commento.io/js/commento.js"></script>
+                <div id="commento"></div>  
+                </>
+            )}
+        </section>    
     </section>
     <style is:inline>
         html.dark .astro-code,
