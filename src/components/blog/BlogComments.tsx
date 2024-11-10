@@ -5,7 +5,7 @@ function BlogComments() {
         // Inserta el script de Commento en el DOM
         const d = document;
         const s = d.createElement("script");
-        s.src = "/js/commento.js";
+        s.src = "http://localhost:8080/js/commento.js";
         s.defer = true; // Utiliza defer para asegurar que el script se cargue correctamente
         (d.head || d.body).appendChild(s);
 
