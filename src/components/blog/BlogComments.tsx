@@ -6,8 +6,16 @@ function BlogComments() {
         const d = document;
         const s = d.createElement("script");
         s.src = "https://tdpblog.com.ar/js/commento.js";
+        s.async = true; // Cargar asíncronamente
         s.defer = true; // Utiliza defer para asegurar que el script se cargue correctamente
         (d.head || d.body).appendChild(s);
+
+        // Inicializa Commento cuando el script se carga
+        s.onload = () => {
+            if ((window as any).commento && typeof (window as any).commento.main === "function") {
+                (window as any).commento.main();
+            }
+        };
 
         return () => {
             // Limpieza al desmontar el componente para evitar duplicación
