@@ -1,0 +1,24 @@
+
+services:
+  remark42:
+    image: umputun/remark42:latest
+    container_name: remark42
+    ports:
+      - "8080:8080" # Puerto en el que estará disponible Remark42
+    environment:
+      - REMARK_URL=https://tdpblog.com.ar # Cambia esto a tu dominio
+      - SITE=tdpblog.com.ar # Cambia esto también
+      - SECRET=tdpblog1985 # Cambia a un valor seguro
+      - ADMIN_SHARED_ID=${ADMIN_SHARED_ID} # ID de administrador (cámbialo)
+      - CORS=true
+
+      # proveedores de authenticación
+      - AUTH_GITHUB_CLI_ID=${AUTH_GITHUB_CLI_ID}
+      - AUTH_GITHUB_CLI_SECRET=${AUTH_GITHUB_CLI_SECRET}
+      - AUTH_GOOGLE_CLI_ID=${AUTH_GOOGLE_CLI_ID}
+      - AUTH_GOOGLE_CLI_SECRET=${AUTH_GOOGLE_CLI_SECRET} 
+
+
+    volumes:
+      - ./data:/srv/var # Carpeta donde se guardarán los datos
+    restart: always
