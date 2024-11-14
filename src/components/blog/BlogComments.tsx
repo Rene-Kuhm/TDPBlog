@@ -5,7 +5,7 @@ function BlogComments() {
         // Inserta el script de Remark42 en el DOM
         const d = document;
         const s = d.createElement("script");
-        s.src = "https://tdpblog.com.ar/web/embed.js"; // URL del script de Remark42 en localhost
+        s.src = "https://tdpblog.com.ar/embed.js"; // URL del script de Remark42 en localhost
         s.async = true; // Cargar asíncronamente
 
         // Configura Remark42 antes de cargar el script
