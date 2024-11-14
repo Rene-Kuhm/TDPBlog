@@ -22,3 +22,17 @@ services:
     volumes:
       - ./data:/srv/var # Carpeta donde se guardarán los datos
     restart: always
+
+    
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    ports:
+      - "80:80"      # Puerto para tráfico HTTP
+      - "443:443"    # Puerto para tráfico HTTPS
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Monta el archivo de configuración de Nginx
+      - ./ssl:/etc/nginx/ssl                   # Monta el directorio de certificados SSL
+    depends_on:
+      - remark42
+    restart: always
