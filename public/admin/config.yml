@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: Rene-Kuhm/TDPBlog # Cambia por tu repositorio correcto
+  branch: main # Cambia si tu rama principal tiene otro nombre
+
+media_folder: "src/assets/images/uploads" # Carpeta donde se almacenarán las imágenes
+public_folder: "/assets/images/uploads"   # Ruta pública para acceder a las imágenes
+
+collections:
+  - name: "posts"
+    label: "Publicaciones"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Título", widget: "string" }
+      - { name: "description", label: "Descripción", widget: "text" }
+      - { name: "pubDate", label: "Fecha de publicación", widget: "datetime" }
+      - { name: "category", label: "Categoría", widget: "string" }
+      - { name: "tags", label: "Etiquetas", widget: "list" }
+      - { name: "keywords", label: "Palabras clave", widget: "list" }
+      - { name: "selected", label: "Destacado", widget: "boolean" }
+      - { name: "banner", label: "Imagen destacada", widget: "image" }
+      - { name: "body", label: "Contenido", widget: "markdown" }
