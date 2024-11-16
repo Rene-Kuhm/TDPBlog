@@ -1,2 +1,5 @@
 index.html
 assets/
+# Pero no ignores imágenes o el directorio admin
+!assets/uploads/
+!assets/admin/
