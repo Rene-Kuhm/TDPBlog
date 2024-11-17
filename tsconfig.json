@@ -2,6 +2,7 @@
     "extends": "astro/tsconfigs/strict",
     "compilerOptions": {
         "strictNullChecks": true,
+        "skipLibCheck": true,
         "baseUrl": "src",
         "jsx": "react-jsx",
         "types": ["astro/client"],
@@ -13,7 +14,8 @@
             "@layouts/*": ["layouts/*"],
             "@pages/*": ["pages/*"],
             "@support/*": ["support/*"],
-            "@images/*": ["images/*"]
+            "@images/*": ["images/*"],
+            "@sanity/*": ["node_modules/@sanity/*"]
         }
     }
 }
