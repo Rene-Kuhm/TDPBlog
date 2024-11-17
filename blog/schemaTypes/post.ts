@@ -75,6 +75,16 @@ export default defineType({
       validation: (Rule) => Rule.min(1).max(20),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title', // Genera el slug a partir del título
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required().error('El slug es obligatorio.'),
+    }),
+    defineField({
       name: 'body',
       title: 'Contenido',
       type: 'blockContent',
