@@ -1,5 +1,5 @@
 backend:
-  name: github # Nombre del backend de Git Gateway
+  name: git-gateway # Nombre del backend de Git Gateway
   repo: Rene-Kuhm/TDPBlog # Cambia por tu repositorio correcto
   branch: main # Cambia si tu rama principal tiene otro nombre
   auth_endpoint: /api/auth # Ruta de la API de autenticación
