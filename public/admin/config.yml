@@ -2,6 +2,7 @@ backend:
   name: github
   repo: Rene-Kuhm/TDPBlog # Cambia por tu repositorio correcto
   branch: main # Cambia si tu rama principal tiene otro nombre
+  auth_endpoint: /api/auth # Ruta de la API de autenticación
 
 media_folder: "src/assets/images/uploads" # Carpeta donde se almacenarán las imágenes
 public_folder: "/assets/images/uploads"   # Ruta pública para acceder a las imágenes
