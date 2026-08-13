@@ -49,7 +49,6 @@ if (!socialImage.startsWith('http')) {
     socialImage = Astro.url.origin + socialImageRes.src
 }
 ---
-import { withBase } from '@/support/url'
 
 <!-- Inject structured data https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->{
     structuredData && (
