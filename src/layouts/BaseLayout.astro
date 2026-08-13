@@ -24,7 +24,6 @@ const {
 } = Astro.props
 const normalizeTitle = !title ? SITE.title : `${title} | ${SITE.title}`
 ---
-import { withBase } from '@/support/url'
 
 <html lang={lang} class='scrollbar-hide lenis lenis-smooth scroll-pt-16'>
     <head>

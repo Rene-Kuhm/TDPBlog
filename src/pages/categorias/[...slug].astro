@@ -29,7 +29,6 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
     )
     .filter((b: CollectionEntry<'posts'>) => b.data.category === category.slug)
 ---
-import { withBase } from '@/support/url'
 
 <BaseLayout
     title={category.data.title}
