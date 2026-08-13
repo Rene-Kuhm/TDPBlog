@@ -1,9 +1,11 @@
 ---
+import { withBase } from '@/support/url'
 import NavLink from '@components/ui/links/NavLink.astro'
 import BrandLogo from '@components/ui/logos/BrandLogo.astro'
 import Theme from '@components/ui/logos/Theme.astro'
 import { NavigationLinks } from '@/config'
 ---
+import { withBase } from '@/support/url'
 
 <header
     class='sticky inset-x-0 z-50 flex flex-wrap w-full text-sm top-4 md:flex-nowrap md:justify-start'
@@ -15,7 +17,7 @@ import { NavigationLinks } from '@/config'
         <div class='flex items-center justify-between'>
             <a
                 class='h-[42px] flex-none rounded-lg text-xl font-bold outline-none ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none'
-                href='/'
+                href={withBase('/')}
                 aria-label='Brand'
             >
                 <BrandLogo class='object-cover w-auto h-full rounded-full' />
@@ -74,7 +76,7 @@ import { NavigationLinks } from '@/config'
             >
                 {
                     NavigationLinks.map((link) => (
-                        <NavLink url={link.url} name={link.name} />
+                        <NavLink url={withBase(link.url)} name={link.name} />
                     ))
                 }
                 <span class='hidden md:inline-block'>
@@ -235,4 +237,4 @@ import { NavigationLinks } from '@/config'
         })
     })
 </script>
-<script is:inline src='/vendor/preline/collapse2.1.0.min.js'></script>
+<script is:inline src={withBase('/vendor/preline/collapse2.1.0.min.js')}></script>

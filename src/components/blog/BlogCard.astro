@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/support/url'
 import type { CollectionEntry } from 'astro:content'
 import Image from '@components/ui/images/Image.astro'
 import { formatDate } from '@support/time'
@@ -9,10 +10,11 @@ interface Props {
     blog: CollectionEntry<'posts'>
 }
 ---
+import { withBase } from '@/support/url'
 
 <a
     class='group relative block rounded-xl outline-none ring-zinc-500 transition duration-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none'
-    href={`/posts/${blog.slug}/`}
+    href={withBase(`/posts/${blog.slug}/`)}
     data-astro-prefetch='false'
 >
     <div
