@@ -1,0 +1,62 @@
+name: Deploy to GitHub Pages
+
+# Publica el sitio Astro en GitHub Pages en cada push a main.
+# El dominio propio (tdpblog.com.ar) dejo de resolver, asi que Pages pasa a
+# ser la URL publica del blog: https://rene-kuhm.github.io/TDPBlog
+#
+# La subida de assets a S3 no se activa: depende de S3_ENABLE, que aqui no
+# se define (ver src/config.ts).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un solo despliegue a la vez; no cancelamos los que ya estan corriendo.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+        env:
+          ASTRO_TELEMETRY_DISABLED: '1'
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
