@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/support/url'
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
@@ -19,6 +20,7 @@ const description =
     'Aquí tienes algunos artículos que considero interesantes, espero que te gusten también'
 const URL = Astro.url.href
 ---
+import { withBase } from '@/support/url'
 
 <BaseLayout
     title='All Blogs'
@@ -44,7 +46,7 @@ const URL = Astro.url.href
         subTitle='La vida no siempre puede ser perfecta, pero aun así debemos vivirla con entusiasmo.'
         btnExists={true}
         btnTitle='Todas las publicaciones'
-        btnURL='/timeline'
+        btnURL={withBase('/timeline')}
     />
 
     <BlogRecentCard blogs={posts} />

@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/support/url'
 import { getCollection } from 'astro:content'
 import {Image} from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
@@ -16,6 +17,7 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
     )
     .slice(0, 3)
 ---
+import { withBase } from '@/support/url'
 
 <BaseLayout
     title='Bienvenido a TDPBlog'
@@ -24,7 +26,7 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
     <HeroSection
         title="Hola, <span class='text-yellow-500 dark:text-yellow-400'>TDPBlog</span>"
         primaryBtn='Explorar Posts'
-        primaryBtnURL='/posts'
+        primaryBtnURL={withBase('/posts')}
         src={blogHeroImg}
         alt='TDPblog'
     />
