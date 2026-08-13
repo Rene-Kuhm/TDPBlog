@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/support/url'
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Image from '@components/ui/images/Image.astro';
@@ -31,6 +32,7 @@ const URL = Astro.url.href;
 const ogImage = post.data.banner;
 
 ---
+import { withBase } from '@/support/url'
 
 <BaseLayout
   title={post.data.title}
@@ -78,7 +80,7 @@ const ogImage = post.data.banner;
               <li class="inline-flex items-center">
                 <a
                   class="flex items-center text-sm text-orange-400 hover:text-orange-500 focus:outline-none focus:text-orange-500"
-                  href={`/categorias/${category.slug}`}
+                  href={withBase(`/categorias/${category.slug}`)}
                 >
                   {category.data.title}
                 </a>

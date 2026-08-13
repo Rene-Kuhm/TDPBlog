@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/support/url'
 const { slug, title, description, count, publishDate } = Astro.props
 
 interface Props {
@@ -9,9 +10,10 @@ interface Props {
     publishDate: string
 }
 ---
+import { withBase } from '@/support/url'
 
 <a
-    href=`/categorias/${slug}`
+    href={withBase(`/categorias/${slug}`)}
     class='flex flex-col justify-between p-5 rounded-lg shadow-lg size-full bg-neutral-100 dark:bg-neutral-900/30 group'
 >
     <div class='flex items-center justify-between mb-3'>

@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/support/url'
 import type { CollectionEntry } from 'astro:content'
 // import Icon from '@components/ui/icons/icon.astro'
 import Image from '@components/ui/images/Image.astro'
@@ -9,10 +10,11 @@ interface Props {
     blog: CollectionEntry<'posts'>
 }
 ---
+import { withBase } from '@/support/url'
 
 <a
     class='transition duration-300 outline-none group rounded-xl ring-zinc-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none'
-    href={`/posts/${blog.slug}/`}
+    href={withBase(`/posts/${blog.slug}/`)}
     data-astro-prefetch
 >
     <div class='relative overflow-hidden aspect-w-16 aspect-h-10 rounded-xl'>
