@@ -68,12 +68,12 @@ const URL = Astro.url.href
             {
                 categorias.map((c: any) => (
                     <BlogCategory
-                        slug={c.slug}
+                        slug={c.id}
                         title={c.data.title}
                         description={c.data.description}
-                        count={postMap.get(c.slug)?.length ?? 0}
+                        count={postMap.get(c.id)?.length ?? 0}
                         publishDate={timeago(
-                            postMap.get(c.slug)?.[0]?.data?.pubDate,
+                            postMap.get(c.id)?.[0]?.data?.pubDate,
                         )}
                     />
                 ))

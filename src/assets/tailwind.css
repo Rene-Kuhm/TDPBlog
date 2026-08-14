@@ -1,0 +1,23 @@
+/*
+ * Tailwind 4 entry point.
+ *
+ * Under @astrojs/tailwind this file did not exist: the integration injected
+ * the stylesheet and read tailwind.config.js on its own. That integration is
+ * discontinued (it supports astro 5 at the latest), so Tailwind now comes in
+ * as a Vite plugin and needs an explicit entry.
+ *
+ * @config keeps the existing tailwind.config.js as the source of truth —
+ * the custom palette, the `blog` prose variant and the preline plugin all
+ * live there — instead of porting several hundred lines to CSS-first config.
+ */
+@import 'tailwindcss';
+
+/*
+ * Preline 4 replaced its Tailwind JS plugin with CSS custom variants. The
+ * header's mobile menu relies on hs-collapse-open:block / :hidden, which come
+ * from here. The runtime JS is a vendored copy under public/vendor/preline.
+ */
+/* Relative path on purpose: preline's exports map does not expose this file. */
+@import '../../node_modules/preline/variants.css';
+
+@config '../../tailwind.config.js';

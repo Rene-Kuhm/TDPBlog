@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     const categorias: CollectionEntry<'categorias'>[] =
         await getCollection('categorias')
     return categorias.map((category) => ({
-        params: { slug: category.slug },
+        params: { slug: category.id },
         props: { category },
     }))
 }
@@ -27,7 +27,7 @@ const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
         (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
             b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
     )
-    .filter((b: CollectionEntry<'posts'>) => b.data.category === category.slug)
+    .filter((b: CollectionEntry<'posts'>) => b.data.category === category.id)
 ---
 
 <BaseLayout

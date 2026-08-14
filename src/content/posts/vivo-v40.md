@@ -45,7 +45,7 @@ El Vivo V40 Lite 5G está equipado con un sistema de cámaras versátil que incl
 
 A continuación, compartimos un video para que puedas conocer más a fondo las características del Vivo V40 Lite 5G:
 
-[![Video del Vivo V40 Lite 5G](https://img.youtube.com/vi/JGO1Xx3ZB8ky/maxresdefault.jpg)](https://www.youtube.com/watch?v=JGO1Xx3ZB8k)
+[![Video del Vivo V40 Lite 5G](https://img.youtube.com/vi/JGO1Xx3ZB8k/maxresdefault.jpg)](https://www.youtube.com/watch?v=JGO1Xx3ZB8k)
 
 ## Conclusión
 

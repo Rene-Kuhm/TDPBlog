@@ -1,4 +1,7 @@
 ---
+// Tailwind 4 needs its entry stylesheet imported explicitly; the retired
+// @astrojs/tailwind integration used to inject it.
+import '@/assets/tailwind.css'
 import { withBase } from '@/support/url'
 import BaseHead from '@components/BaseHead.astro'
 import Footer from '@components/Footer.astro'

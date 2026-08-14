@@ -1,4 +1,5 @@
-import { uploader } from 'astro-uploader'
+// astro-uploader now ships `uploader` as its default export.
+import uploader from 'astro-uploader'
 import type { AstroIntegration } from 'astro'
 import { Settings } from './../config.ts'
 
