@@ -34,7 +34,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
     "@giscus/react": "^3.0.0",
-    "@playform/compress": "^0.1.4",
+    "@playform/compress": "^0.2.5",
     "@types/react": "^18.3.2",
     "astro": "^4.16.11",
     "astro-cloudinary": "^1.1.2",
