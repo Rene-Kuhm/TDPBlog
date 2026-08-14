@@ -114,9 +114,10 @@ export default {
             }),
         },
     },
+    // Tailwind 4 handles nesting natively, so tailwindcss/nesting is gone, and
+    // preline 4 ships its variants as CSS rather than a JS plugin — both are
+    // wired up in src/assets/tailwind.css now.
     plugins: [
-        require('tailwindcss/nesting'),
-        require('preline/plugin'),
         require('@tailwindcss/typography'),
     ],
 }

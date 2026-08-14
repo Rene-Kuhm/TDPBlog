@@ -1,7 +1,13 @@
 import { defineCollection, z } from 'astro:content'
+import { file, glob } from 'astro/loaders'
+import { parse as parseYaml } from 'yaml'
+
+// Astro 5 moved content config here from src/content/config.ts and replaced
+// the implicit `type: 'content' | 'data'` with explicit loaders. The schemas
+// below are unchanged; only how the entries are found is new.
 
 const posts = defineCollection({
-    type: 'content',
+    loader: glob({ base: './src/content/posts', pattern: '**/*.md' }),
     schema: ({ image }) =>
         z.object({
             title: z.string(),
@@ -29,7 +35,7 @@ const posts = defineCollection({
 })
 
 const categoryCollection = defineCollection({
-    type: 'content',
+    loader: glob({ base: './src/content/categorias', pattern: '**/*.md' }),
     schema: () =>
         z.object({
             title: z.string(),
@@ -37,22 +43,31 @@ const categoryCollection = defineCollection({
         }),
 })
 
+// friends is a single YAML file holding an array. The file loader needs each
+// item to carry an id, and these entries have none, so the parser derives one
+// from the name.
 const friendsCollection = defineCollection({
-    type: 'data',
+    loader: file('./src/content/friends/index.yml', {
+        parser: (text) => {
+            const items = parseYaml(text) as Record<string, unknown>[]
+            return items.map((item, index) => ({
+                ...item,
+                id: String(item.name ?? index),
+            }))
+        },
+    }),
     schema: () =>
-        z.array(
-            z.object({
-                title: z.string(),
-                name: z.string(),
-                description: z.string(),
-                avatar: z.string(),
-                social: z.object({
-                    twitter: z.string().optional(),
-                    blog: z.string().optional(),
-                    github: z.string().optional(),
-                }),
+        z.object({
+            title: z.string(),
+            name: z.string(),
+            description: z.string(),
+            avatar: z.string(),
+            social: z.object({
+                twitter: z.string().optional(),
+                blog: z.string().optional(),
+                github: z.string().optional(),
             }),
-        ),
+        }),
 })
 
 export const collections = {

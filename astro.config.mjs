@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
-import tailwind from '@astrojs/tailwind'
+// @astrojs/tailwind is discontinued and caps out at astro 5; Tailwind 4 ships
+// as a Vite plugin instead, wired in under vite.plugins below.
+import tailwindcss from '@tailwindcss/vite'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import partytown from '@astrojs/partytown'
@@ -16,12 +18,22 @@ export default defineConfig({
         // If you don't want to optimize images during the BUILD process,
         // you can open this comment. It will significantly reduce the build time but won't optimize any images anymore.
         // service: passthroughImageService(),
+
+        // Astro 5 refuses to optimize remote images from hosts that are not
+        // listed here. These are the ones the posts actually reference.
+        domains: [
+            'i.postimg.cc',
+            'ik.imagekit.io',
+            'img.youtube.com',
+            'avatars.githubusercontent.com',
+            'tdpblog.com',
+            'tdpblog.com.ar',
+        ],
     },
     integrations: [
         partytown(),
         mdx(),
         sitemap(),
-        tailwind(),
         react(),
         (await import('@playform/compress')).default({
             CSS: true,
@@ -46,6 +58,9 @@ export default defineConfig({
     },
     devToolbar: {
         enabled: false,
+    },
+    vite: {
+        plugins: [tailwindcss()],
     },
     prefetch: true,
     output: 'static',

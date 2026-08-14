@@ -1,6 +1,6 @@
 ---
 import { withBase } from '@/support/url'
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Image from '@components/ui/images/Image.astro';
 import { timeago } from '@support/time';
@@ -11,7 +11,7 @@ import { SITE } from '@/config';
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: post,
   }));
 }
@@ -20,14 +20,14 @@ export async function getStaticPaths() {
 const post = Astro.props;
 
 // Renderizar el contenido y metadatos del post
-const { Content, remarkPluginFrontmatter } = await post.render();
+const { Content, remarkPluginFrontmatter } = await render(post);
 
 // Obtener categoría relacionada
 const categorias = await getCollection('categorias');
-const category = categorias.find((c) => c.slug === post.data.category) || null;
+const category = categorias.find((c) => c.id === post.data.category) || null;
 
 // Obtener tags y URL de la publicación
-const tags = post.data.tags ?? [category?.slug ?? ''];
+const tags = post.data.tags ?? [category?.id ?? ''];
 const URL = Astro.url.href;
 const ogImage = post.data.banner;
 
@@ -79,7 +79,7 @@ const ogImage = post.data.banner;
               <li class="inline-flex items-center">
                 <a
                   class="flex items-center text-sm text-orange-400 hover:text-orange-500 focus:outline-none focus:text-orange-500"
-                  href={withBase(`/categorias/${category.slug}`)}
+                  href={withBase(`/categorias/${category.id}`)}
                 >
                   {category.data.title}
                 </a>
